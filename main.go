@@ -32,6 +32,8 @@ func main() {
 
 	srv := service.New()
 
+	srv.Init()
+
 	client := pb.NewShippingService("shippy.service.consignment", srv.Client())
 
 	file := defaultFilename
