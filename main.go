@@ -9,6 +9,7 @@ import (
 
 	pb "github.com/JonasMuylaert/shippy-service-consignment/proto/consignment"
 	"github.com/micro/micro/v3/service"
+	"github.com/micro/micro/v3/service/client"
 )
 
 const (
@@ -34,7 +35,7 @@ func main() {
 
 	srv.Init()
 
-	client := pb.NewShippingService("shippy.service.consignment", srv.Client())
+	client := pb.NewShippingService("consignment", client.DefaultClient)
 
 	file := defaultFilename
 	if len(os.Args) > 1 {
